@@ -1,0 +1,382 @@
+Script started on Thu 26 Nov 2015 09:52:06 PM CST
+bms0190@cse01:~/test/prologsort$ sc[K[Kgrp[Kolog[K[K[K[K[Kprolog
+GNU Prolog 1.3.0
+By Daniel Diaz
+Copyright (C) 1999-2007 Daniel Diaz
+| ?- ['sort.l  pl  .pl']['sort.pl'].
+compiling /home/bms0190/test/prologsort/sort.pl for byte code...
+/home/bms0190/test/prologsort/sort.pl:9: warning: singleton variables [Left] for split_at/4
+/home/bms0190/test/prologsort/sort.pl compiled, 11 lines read - 3370 bytes written, 7 ms
+
+(4 ms) yes
+| ?- mergews  sory(  t(Ass   [3,1,2,4][3,1,2,4], X)([3,1,2,4], X).
+
+X = [1,2,3,4] ? 
+
+yes
+| ?- trace.
+The debugger will first creep -- showing everything (trace)
+
+yes
+{trace}
+| ?- trace.
+The debugger will first creep -- showing everything (trace)
+
+yes
+{trace}
+| ?- trace.mergesort([3,1,2,4], X).
+      1    1  Call: mergesort([3,1,2,4],_24) ? 
+      2    2  Call: halve([3,1,2,4],_94,_95) ? 
+      3    3  Call: length([3,1,2,4],_118) ? 
+      3    3  Exit: length([3,1,2,4],4) ? 
+      4    3  Call: _148 is truncate(4/2) ? 
+      4    3  Exit: 2 is truncate(4/2) ? 
+      5    3  Call: split_at([3,1,2,4],_177,_178,2) ? 
+      6    4  Call: _206 is 2-1 ? 
+      6    4  Exit: 1 is 2-1 ? 
+      7    4  Call: split_at([1,2,4],_164,_233,1) ? 
+      8    5  Call: _262 is 1-1 ? 
+      8    5  Exit: 0 is 1-1 ? 
+      9    5  Call: split_at([2,4],_220,_289,0) ? 
+      9    5  Exit: split_at([2,4],_220,[2,4],0) ? 
+      7    4  Exit: split_at([1,2,4],[1|_220],[2,4],1) ? 
+      5    3  Exit: split_at([3,1,2,4],[3,1|_220],[2,4],2) ? 
+      2    2  Exit: halve([3,1,2,4],[3,1|_220],[2,4]) ? 
+     10    2  Call: mergesort([3,1|_220],_317) ? 
+     11    3  Call: halve([3,1|_220],_342,_343) ? 
+     12    4  Call: length([3,1|_220],_366) ? 
+     12    4  Exit: length([3,1],2) ? 
+     13    4  Call: _396 is truncate(2/2) ? 
+     13    4  Exit: 1 is truncate(2/2) ? 
+     14    4  Call: split_at([3,1],_425,_426,1) ? 
+     15    5  Call: _454 is 1-1 ? 
+     15    5  Exit: 0 is 1-1 ? 
+     16    5  Call: split_at([1],_412,_481,0) ? 
+     16    5  Exit: split_at([1],_412,[1],0) ? 
+     14    4  Exit: split_at([3,1],[3|_412],[1],1) ? 
+     11    3  Exit: halve([3,1],[3|_412],[1]) ? 
+     17    3  Call: mergesort([3|_412],_508) ? 
+     17    3  Exit: mergesort([3],[3]) ? 
+     18    3  Call: mergesort([1],_535) ? 
+     18    3  Exit: mergesort([1],[1]) ? 
+     19    3  Call: merge([3],[1],_563) ? 
+     20    4  Call: merge([],[1],_550) ? 
+     20    4  Exit: merge([],[1],[1]) ? 
+     21    4  Call: 3<1 ? 
+     21    4  Fail: 3<1 ? 
+     20    4  Redo: merge([],[1],[1]) ? 
+     20    4  Fail: merge([],[1],_550) ? 
+     20    4  Call: merge([],[3],_550) ? 
+     20    4  Exit: merge([],[3],[3]) ? 
+     21    4  Call: 1<3 ? 
+     21    4  Exit: 1<3 ? 
+     19    3  Exit: merge([3],[1],[1,3]) ? 
+     10    2  Exit: mergesort([3,1],[1,3]) ? 
+     22    2  Call: mergesort([2,4],_644) ? 
+     23    3  Call: halve([2,4],_669,_670) ? 
+     24    4  Call: length([2,4],_693) ? 
+     24    4  Exit: length([2,4],2) ? 
+     25    4  Call: _723 is truncate(2/2) ? 
+     25    4  Exit: 1 is truncate(2/2) ? 
+     26    4  Call: split_at([2,4],_752,_753,1) ? 
+     27    5  Call: _781 is 1-1 ? 
+     27    5  Exit: 0 is 1-1 ? 
+     28    5  Call: split_at([4],_739,_808,0) ? 
+     28    5  Exit: split_at([4],_739,[4],0) ? 
+     26    4  Exit: split_at([2,4],[2|_739],[4],1) ? 
+     23    3  Exit: halve([2,4],[2|_739],[4]) ? 
+     29    3  Call: mergesort([2|_739],_835) ? 
+     29    3  Exit: mergesort([2],[2]) ? 
+     30    3  Call: mergesort([4],_862) ? 
+     30    3  Exit: mergesort([4],[4]) ? 
+     31    3  Call: merge([2],[4],_890) ? 
+     32    4  Call: merge([],[4],_877) ? 
+     32    4  Exit: merge([],[4],[4]) ? 
+     33    4  Call: 2<4 ? 
+     33    4  Exit: 2<4 ? 
+     31    3  Exit: merge([2],[4],[2,4]) ? 
+     22    2  Exit: mergesort([2,4],[2,4]) ? 
+     34    2  Call: merge([1,3],[2,4],_24) ? 
+     35    3  Call: merge([3],[2,4],_959) ? 
+     36    4  Call: merge([],[2,4],_988) ? 
+     36    4  Exit: merge([],[2,4],[2,4]) ? 
+     37    4  Call: 3<2 ? 
+     37    4  Fail: 3<2 ? 
+     36    4  Redo: merge([],[2,4],[2,4]) ? 
+     36    4  Fail: merge([],[2,4],_988) ? 
+     36    4  Call: merge([4],[3],_988) ? 
+     37    5  Call: merge([],[3],_1017) ? 
+     37    5  Exit: merge([],[3],[3]) ? 
+     38    5  Call: 4<3 ? 
+     38    5  Fail: 4<3 ? 
+     37    5  Redo: merge([],[3],[3]) ? 
+     37    5  Fail: merge([],[3],_1017) ? 
+     37    5  Call: merge([],[4],_1017) ? 
+     37    5  Exit: merge([],[4],[4]) ? 
+     38    5  Call: 3<4 ? 
+     38    5  Exit: 3<4 ? 
+     36    4  Exit: merge([4],[3],[3,4]) ? 
+     39    4  Call: 2<3 ? 
+     39    4  Exit: 2<3 ? 
+     35    3  Exit: merge([3],[2,4],[2,3,4]) ? 
+     40    3  Call: 1<2 ? 
+     40    3  Exit: 1<2 ? 
+     34    2  Exit: merge([1,3],[2,4],[1,2,3,4]) ? 
+      1    1  Exit: mergesort([3,1,2,4],[1,2,3,4]) ? 
+
+X = [1,2,3,4] ? 
+
+(8 ms) yes
+{trace}
+| ?- 
+
+mergesort([3,1,2,4], X)., X). , X). , X). , X). , X). , X). , X). , X). , X). , X). (, X)., X). X, ).,[ ).1 )., ).2 )., ).3 ).] ).[1,2,3] ).
+      1    1  Call: mergesort(_16,[1,2,3]) ? 
+      2    2  Call: halve(_16,_92,_93) ? 
+      3    3  Call: length(_16,_116) ? 
+      3    3  Exit: length([],0) ? 
+      4    3  Call: _146 is truncate(0/2) ? 
+      4    3  Exit: 0 is truncate(0/2) ? 
+      5    3  Call: split_at([],_175,_176,0) ? 
+      5    3  Exit: split_at([],_177,[],0) ? 
+      2    2  Exit: halve([],_178,[]) ? 
+      6    2  Call: mergesort(_201,_202) ? 
+      6    2  Exit: mergesort([],[]) ? 
+      7    2  Call: mergesort([],_226) ? 
+      7    2  Exit: mergesort([],[]) ? 
+      8    2  Call: merge([],[],[1,2,3]) ? 
+      8    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+      8    3  Call: halve([],_251,_252) ? 
+      9    4  Call: length([],_275) ? 
+      9    4  Exit: length([],0) ? 
+     10    4  Call: _305 is truncate(0/2) ? 
+     10    4  Exit: 0 is truncate(0/2) ? 
+     11    4  Call: split_at([],_334,_335,0) ? 
+     11    4  Exit: split_at([],_336,[],0) ? 
+      8    3  Exit: halve([],_337,[]) ? 
+     12    3  Call: mergesort(_360,_361) ? 
+     12    3  Exit: mergesort([],[]) ? 
+     13    3  Call: mergesort([],_385) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     14    3  Call: merge([],[],_411) ? 
+     14    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     15    2  Call: merge([],[],[1,2,3]) ? 
+     15    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     14    3  Redo: merge([],[],[]) ? 
+     14    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     15    2  Call: merge([],[],[1,2,3]) ? 
+     15    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     14    4  Call: halve([],_410,_411) ? 
+     15    5  Call: length([],_434) ? 
+     15    5  Exit: length([],0) ? 
+     16    5  Call: _464 is truncate(0/2) ? 
+     16    5  Exit: 0 is truncate(0/2) ? 
+     17    5  Call: split_at([],_493,_494,0) ? 
+     17    5  Exit: split_at([],_495,[],0) ? 
+     14    4  Exit: halve([],_496,[]) ? 
+     18    4  Call: mergesort(_519,_520) ? 
+     18    4  Exit: mergesort([],[]) ? 
+     19    4  Call: mergesort([],_544) ? 
+     19    4  Exit: mergesort([],[]) ? 
+     20    4  Call: merge([],[],_570) ? 
+     20    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     21    3  Call: merge([],[],_597) ? 
+     21    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     22    2  Call: merge([],[],[1,2,3]) ? 
+     22    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     21    3  Redo: merge([],[],[]) ? 
+     21    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     22    2  Call: merge([],[],[1,2,3]) ? 
+     22    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     20    4  Redo: merge([],[],[]) ? 
+     20    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     21    3  Call: merge([],[],_597) ? 
+     21    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     22    2  Call: merge([],[],[1,2,3]) ? 
+     22    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     21    3  Redo: merge([],[],[]) ? 
+     21    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     22    2  Call: merge([],[],[1,2,3]) ? 
+     22    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     19    4  Redo: mergesort([],[]) ? 
+     20    5  Call: halve([],_569,_570) ? 
+     21    6  Call: length([],_593) ? 
+     21    6  Exit: length([],0) ? 
+     22    6  Call: _623 is truncate(0/2) ? 
+     22    6  Exit: 0 is truncate(0/2) ? 
+     23    6  Call: split_at([],_652,_653,0) ? 
+     23    6  Exit: split_at([],_654,[],0) ? 
+     20    5  Exit: halve([],_655,[]) ? 
+     24    5  Call: mergesort(_678,_679) ? 
+     24    5  Exit: mergesort([],[]) ? 
+     25    5  Call: mergesort([],_703) ? 
+     25    5  Exit: mergesort([],[]) ? 
+     26    5  Call: merge([],[],_729) ? 
+     26    5  Exit: merge([],[],[]) ? 
+     19    4  Exit: mergesort([],[]) ? 
+     27    4  Call: merge([],[],_756) ? 
+     27    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     28    3  Call: merge([],[],_783) ? 
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     28    3  Redo: merge([],[],[]) ? 
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     27    4  Redo: merge([],[],[]) ? 
+     27    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     28    3  Call: merge([],[],_783) ? 
+     28    3  Exit: merge([],[],[]) ? 
+Unknown command (type h for help)
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     28    3  Redo: merge([],[],[]) ? 
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     19    4  Redo: mergesort([],[]) ? 
+     26    5  Redo: merge([],[],[]) ? 
+     26    5  Exit: merge([],[],[]) ? 
+     19    4  Exit: mergesort([],[]) ? 
+     27    4  Call: merge([],[],_756) ? 
+     27    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     28    3  Call: merge([],[],_783) ? 
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     28    3  Redo: merge([],[],[]) ? 
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     27    4  Redo: merge([],[],[]) ? 
+     27    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     28    3  Call: merge([],[],_783) ? 
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     28    3  Redo: merge([],[],[]) ? 
+     28    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     29    2  Call: merge([],[],[1,2,3]) ? 
+Unknown command (type h for help)
+     29    2  Call: merge([],[],[1,2,3]) ? 
+Unknown command (type h for help)
+     29    2  Call: merge([],[],[1,2,3]) ? 
+Unknown command (type h for help)
+     29    2  Call: merge([],[],[1,2,3]) ? 
+     29    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     19    4  Redo: mergesort([],[]) ? 
+     25    5  Redo: mergesort([],[]) ? 
+     26    6  Call: halve([],_728,_729) ? 
+     27    7  Call: length([],_752) ? 
+     27    7  Exit: length([],0) ? 
+     28    7  Call: _782 is truncate(0/2) ? 
+     28    7  Exit: 0 is truncate(0/2) ? 
+     29    7  Call: split_at([],_811,_812,0) ? 
+     29    7  Exit: split_at([],_813,[],0) ? 
+     26    6  Exit: halve([],_814,[]) ? 
+     30    6  Call: mergesort(_837,_838) ? 
+     30    6  Exit: mergesort([],[]) ? 
+     31    6  Call: mergesort([],_862) ? 
+     31    6  Exit: mergesort([],[]) ? 
+     32    6  Call: merge([],[],_888) ? 
+     32    6  Exit: merge([],[],[]) ? 
+     25    5  Exit: mergesort([],[]) ? 
+     33    5  Call: merge([],[],_915) ? 
+     33    5  Exit: merge([],[],[]) ? 
+     19    4  Exit: mergesort([],[]) ? 
+     34    4  Call: merge([],[],_942) ? 
+     34    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     35    3  Call: merge([],[],_969) ? 
+     35    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     36    2  Call: merge([],[],[1,2,3]) ? 
+     36    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     35    3  Redo: merge([],[],[]) ? 
+     35    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     36    2  Call: merge([],[],[1,2,3]) ? 
+     36    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     13    3  Redo: mergesort([],[]) ? 
+     34    4  Redo: merge([],[],[]) ? 
+     34    4  Exit: merge([],[],[]) ? 
+     13    3  Exit: mergesort([],[]) ? 
+     35    3  Call: merge([],[],_969) ? 
+     35    3  Exit: merge([],[],[]) ? 
+      7    2  Exit: mergesort([],[]) ? 
+     36    2  Call: merge([],[],[1,2,3]) ? 
+     36    2  Fail: merge([],[],[1,2,3]) ? 
+      7    2  Redo: mergesort([],[]) ? 
+     35    3  Redo: merge([],[],[]) ? ;
+Unknown command (type h for help)
+     35    3  Redo: merge([],[],[]) ? h
+Debugging commands:
+
+RET/c creep        l  leap 
+   s  skip         G  goto
+   r  retry        f  fail
+   w  write        d  display
+   p  print        e  exception
+   g  ancestors    A  alternatives
+   u  unify        .  father file
+   n  nodebug      =  debugging
+   +  spy this     *  spy conditionally
+   -  nospy this   L  listing
+   a  abort        b  break
+   @  command      <  set printdepth
+  h/? help         W  WAM debugger
+
+     35    3  Redo: merge([],[],[]) ? a
+execution aborted
+{trace}
+| ?- d 
+
+bms0190@cse01:~/test/prologsort$ exit
+
+Script done on Thu 26 Nov 2015 09:55:27 PM CST
